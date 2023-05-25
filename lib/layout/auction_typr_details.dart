@@ -122,6 +122,7 @@ Widget auction_list_element(context, auction_model model,names,setstate,type) {
             SizedBox(width: 5,),
             Center(child: Text(model.time!,style: TextStyle(fontSize: 20))),
             //Spacer(),
+            SizedBox(width: 30,),
             ElevatedButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>auction_details_screen(model:model,type: names,)));
             }, child: Text("تفاصيل المزاد")),

@@ -1,3 +1,4 @@
+import 'package:auction_app_admin/layout/Auction_details_update.dart';
 import 'package:auction_app_admin/model/auction_model.dart';
 import 'package:auction_app_admin/utils/const.dart';
 import 'package:auction_app_admin/utils/map.dart';
@@ -120,6 +121,12 @@ Widget auction_main_widget(BuildContext context,auction_model model,setstate){
                             wait_detail=model;
                           });
                         }, child: Text("تفاصيل")),
+                    SizedBox(width: 20,),
+                    ElevatedButton(
+                        style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue.shade600)),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Auction_details_update(is_redy:false,type: "wait",id: model.id,)));
+                        }, child: Text("تعديل الصور")),
                     SizedBox(width: 20,),
                     ElevatedButton(
                         style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.green.shade600)),

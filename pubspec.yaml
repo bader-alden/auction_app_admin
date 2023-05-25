@@ -43,8 +43,12 @@ dependencies:
   hive_flutter:
   google_maps_flutter_web  :
   image_picker_web:
-
-
+  http:
+  csv:
+  file_picker:
+  universal_io:
+  cross_file:
+  reorderables:
 
 
 

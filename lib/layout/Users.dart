@@ -382,9 +382,9 @@ Widget user_detail_widget(BuildContext context, user_models? model, setstate) {
             if (model!.fav![index] != "") {
               return Row(
                 children: [
-                  Text(model!.fav![index]),
+                  Text(model.fav![index]),
                   ElevatedButton(onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>auction_details_screen(is_redy: false,type: model!.fav![index].split("|")[1],id:model!.fav![index].split("|")[0] ,)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>auction_details_screen(is_redy: false,type: model.fav![index].split("|")[1],id:model!.fav![index].split("|")[0] ,)));
                    // Navigator.push(context, MaterialPageRoute(builder: (context)=>auction_details_screen(model:model,type: names,)));
                     }, child: Text("عرض")),
                 ],

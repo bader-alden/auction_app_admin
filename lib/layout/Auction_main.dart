@@ -10,6 +10,8 @@ import 'package:path/path.dart' as path;
 import 'dart:io';
 import 'dart:async';
 
+import 'main_data_details.dart';
+
 List<auction_type_model> auction_main_list = [];
 bool is_update_init = false;
 int auction_main_screen_type = 0;
@@ -374,72 +376,73 @@ Widget auction_main_show_screen(BuildContext context, auction_type_model model, 
                       model.all_kind![index].time!,
                       style: TextStyle(fontSize: 18),
                     ),
-                    Text("المعلومات الأساسية:"),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                        width: 200,
-                        child: Text(
-                         //auction_main_type_auction_main_data.toString(),
-                          model.all_kind![index].main_date!.replaceAll("^", " , "),
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: 18),
-                        )),
+                    // Text("المعلومات الأساسية:"),
+                    // SizedBox(
+                    //   width: 20,
+                    // ),
+                    // Container(
+                    //     width: 200,
+                    //     child: Text(
+                    //      //auction_main_type_auction_main_data.toString(),
+                    //       model.all_kind![index].main_date!.replaceAll("^", " , "),
+                    //       overflow: TextOverflow.ellipsis,
+                    //       style: TextStyle(fontSize: 18),
+                    //     )),
                     SizedBox(
                       width: 20,
                     ),
                     ElevatedButton(
                         onPressed: () {
                           List a = model.all_kind![index].main_date!.toString().split("^");
-                          showDialog<void>(
-                            context: context,
-                            barrierDismissible: false,
-                            builder: (BuildContext dialogContext) {
-                              return AlertDialog(
-                                content: SizedBox(
-                                  height: 500,
-                                  width: 500,
-                                  child: StatefulBuilder(builder: (context, setstae) {
-                                    return Column(
-                                      children: [
-                                        Expanded(
-                                          child: ListView.builder(
-                                              itemCount: a.length,
-                                              itemBuilder: (context, indexx) {
-                                                return Column(
-                                                  children: [
-                                                    Row(
-                                                      children: [
-                                                        Spacer(),
-                                                        Text(a[indexx]),
-                                                        SizedBox(
-                                                          width: 10,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    SizedBox(
-                                                      height: 10,
-                                                    ),
-                                                  ],
-                                                );
-                                              }),
-                                        ),
-                                      ],
-                                    );
-                                  }),
-                                ),
-                                actions: <Widget>[
-                                  TextButton(
-                                    child: Text('موافق'),
-                                    onPressed: () {
-                                      Navigator.of(dialogContext).pop(); // Dismiss alert dialog
-                                    },
-                                  ),
-                                ],
-                              );
-                            },
-                          );
+                          // showDialog<void>(
+                          //   context: context,
+                          //   barrierDismissible: false,
+                          //   builder: (BuildContext dialogContext) {
+                          //     return AlertDialog(
+                          //       content: SizedBox(
+                          //         height: 500,
+                          //         width: 500,
+                          //         child: StatefulBuilder(builder: (context, setstae) {
+                          //           return Column(
+                          //             children: [
+                          //               Expanded(
+                          //                 child: ListView.builder(
+                          //                     itemCount: a.length,
+                          //                     itemBuilder: (context, indexx) {
+                          //                       return Column(
+                          //                         children: [
+                          //                           Row(
+                          //                             children: [
+                          //                               Spacer(),
+                          //                               Text(a[indexx]),
+                          //                               SizedBox(
+                          //                                 width: 10,
+                          //                               ),
+                          //                             ],
+                          //                           ),
+                          //                           SizedBox(
+                          //                             height: 10,
+                          //                           ),
+                          //                         ],
+                          //                       );
+                          //                     }),
+                          //               ),
+                          //             ],
+                          //           );
+                          //         }),
+                          //       ),
+                          //       actions: <Widget>[
+                          //         TextButton(
+                          //           child: Text('موافق'),
+                          //           onPressed: () {
+                          //             Navigator.of(dialogContext).pop(); // Dismiss alert dialog
+                          //           },
+                          //         ),
+                          //       ],
+                          //     );
+                          //   },
+                          // );
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>main_data_details(list:a,main:model.all_kind!,id:model.id,index: index,)));
                         },
                         child: Text("عرض المعلومات الاساسية")),
                     SizedBox(
